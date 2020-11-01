@@ -1,8 +1,12 @@
+from random import *
+#creates a random 8 digit account number
+def newAccountNumber():
+    return randrange(10000000, 99999999)
 class BankAccount:
     #initializes BankAccount with following attributes
-    def __init__(self, fullName, accountNumber, routingNumber, balance):
+    def __init__(self, fullName, routingNumber, balance=0):
         self.fullName=fullName
-        self.accountNumber=accountNumber
+        self.accountNumber=newAccountNumber()
         self.routingNumber=routingNumber
         self.balance=balance
     #function adds indicated amount to balance
@@ -34,18 +38,18 @@ class BankAccount:
 #Testing~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #Account1
-account1=BankAccount("player1", 1, 1, 0)
+account1=BankAccount("player1", 1)
 account1.deposit(10)
 account1.printReciept()
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 #Account2
-account2=BankAccount("player2", 2, 2, 0)
+account2=BankAccount("player2", 2)
 account2.withdraw(500)
 account2.getBalance()
 account2.printReciept()
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 #Account3
-account3=BankAccount("player3", 3, 3, 1000)
+account3=BankAccount("player3", 3, 1000)
 account3.addInterest()
 account3.printReciept()
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
