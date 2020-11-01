@@ -1,12 +1,15 @@
 class BankAccount:
+    #initializes BankAccount with following attributes
     def __init__(self, fullName, accountNumber, routingNumber, balance):
         self.fullName=fullName
         self.accountNumber=accountNumber
         self.routingNumber=routingNumber
         self.balance=balance
+    #function adds indicated amount to balance
     def deposit(self, amount):
         self.balance += amount
         print(f"Amount Deposited: {amount}")
+    #function subtracts indicated amount from balance only if balance holds that much or greater.
     def withdraw(self, amount):
         if amount > self.balance:
             print("Insufficient Funds. Overdraft charged. ($10)")
@@ -14,11 +17,14 @@ class BankAccount:
         else:
             self.balance -= amount
             print(f"Amount Withdrawn {amount}")
+    #prints balance, returns balance
     def getBalance(self):
         print(f"Account balance: {self.balance}")
         return self.balance
+    #adds interest?
     def addInterest(self):
         self.balance += (self.balance*0.00083)
+    #prints information similar to __dict__ but formatted
     def printReciept(self):
         print(self.fullName)
         print(f"Account No.: {self.accountNumber}")
