@@ -12,7 +12,7 @@ class BankAccount:
     #function adds indicated amount to balance
     def deposit(self, amount):
         self.balance += amount
-        print(f"Amount Deposited: {amount}")
+        print(f"Amount Deposited: ${amount}")
     #function subtracts indicated amount from balance only if balance holds that much or greater.
     def withdraw(self, amount):
         if amount > self.balance:
@@ -20,10 +20,10 @@ class BankAccount:
             self.balance -= 10
         else:
             self.balance -= amount
-            print(f"Amount Withdrawn {amount}")
+            print(f"Amount Withdrawn ${amount}")
     #prints balance, returns balance
     def getBalance(self):
-        print(f"Account balance: {self.balance}")
+        print(f"Account balance: ${self.balance}")
         return self.balance
     #adds interest?
     def addInterest(self):
@@ -31,9 +31,9 @@ class BankAccount:
     #prints information similar to __dict__ but formatted
     def printReciept(self):
         print(self.fullName)
-        print(f"Account No.: {self.accountNumber}")
+        print(f"Account No.: ****{str(self.accountNumber)[slice(3, -1)]}")
         print(f"Routing No.: {self.routingNumber}")
-        print(f"Balance: {self.balance}")
+        print(f"Balance: ${self.balance}")
 
 #Testing~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
